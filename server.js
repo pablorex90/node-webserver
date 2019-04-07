@@ -3,6 +3,8 @@ const app = express();
 const hbs = require('hbs');
 require('./hbs/helpers');
 
+const port = process.env.PORT || 8080;
+
 app.use(express.static(__dirname + '/public'));
 
 hbs.registerPartials(__dirname + '/views/parciales');
@@ -23,6 +25,6 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.listen(8080, () => {
-    console.log('Escuchando server puerto 8080');
+app.listen(port, () => {
+    console.log(`Escuchando server puerto ${port}`);
 });
